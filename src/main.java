@@ -12,5 +12,8 @@ public class main {
 
         // Método de atacar
         Player1.atacar(Player2);
+
+        // Ganhar experiência
+        Player1.ganharExperiencia(100);
     }
 }
