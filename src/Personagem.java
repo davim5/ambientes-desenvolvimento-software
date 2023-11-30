@@ -65,6 +65,19 @@ public class Personagem {
         return inteligencia;
     }
 
+    public void atacar(Personagem alvo) {
+        System.out.println(nome + " está atacando " + alvo.getNome());
+        alvo.receberDano(força);
+    }
+
+    public void receberDano(int dano) {
+        pontosDeVida -= dano;
+        System.out.println(nome + " recebeu " + dano + " de dano");
+        if (pontosDeVida <= 0) {
+            System.out.println(nome + " morreu");
+        }
+    }
+
     @Override
     public String toString() {
         return "Nome: " + nome + "\nClasse: " + classe + "\nLevel: " + level + "\nForça: " + força + "\nVelocidade: " + velocidade + "\nInteligência: " + inteligencia;
