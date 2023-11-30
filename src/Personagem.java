@@ -6,8 +6,9 @@ public class Personagem {
     private int velocidade;
     private int inteligencia;
     private int pontosDeVida;
+    private int experiencia;
 
-    public Personagem(String nome, String classe, int level, int força, int velocidade, int inteligencia, int pontosDeVida) {
+    public Personagem(String nome, String classe, int level, int força, int velocidade, int inteligencia, int pontosDeVida, int experiencia) {
         this.nome = nome;
         this.classe = classe;
         this.level = level;
@@ -15,6 +16,7 @@ public class Personagem {
         this.velocidade = velocidade;
         this.inteligencia = inteligencia;
         this.pontosDeVida = pontosDeVida;
+        this.experiencia = experiencia;
     }
 
     public void setNome(String nome) {
@@ -76,6 +78,20 @@ public class Personagem {
         if (pontosDeVida <= 0) {
             System.out.println(nome + " morreu");
         }
+    }
+
+    public void ganharExperiencia(int experiencia) {
+        this.experiencia += experiencia;
+        System.out.println(nome + " ganhou " + experiencia + " de experiência");   
+        if(this.experiencia >= (100 * level)) {
+            subirDeLevel();
+            this.experiencia = 0;
+        }
+    }
+
+    public void subirDeLevel() {
+        level++;
+        System.out.println(nome + " subiu para o level " + level);
     }
 
     @Override
